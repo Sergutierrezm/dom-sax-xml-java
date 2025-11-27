@@ -1,50 +1,91 @@
-# Java DOM Personas
+Java DOM & SAX Personas
 
-## Descripción
-Proyecto en Java que permite **crear y leer archivos XML** utilizando el modelo **DOM (Document Object Model)**.  
-Genera un fichero `personas.xml` con datos de varias personas y permite leerlo mostrando la información por pantalla.  
-El proyecto está organizado en **dos paquetes**: uno para **crear archivos XML** y otro para **leer archivos XML**.
+Descripción
 
----
+Proyecto en Java que permite crear y leer archivos XML utilizando dos métodos distintos: DOM y SAX.
+Ambos sistemas están separados en paquetes diferentes para facilitar su estudio y organización.
 
-## Paquetes y funcionalidades
+El proyecto genera un archivo personas.xml con datos de varias personas y permite leerlo usando DOM o SAX, según el paquete elegido.
 
-### 1️⃣ `nf3.accesodatos.dom`
-- Contiene el programa para **crear `personas.xml`** con datos de personas (nombre, edad, nacionalidad).  
-- Permite generar un XML válido usando DOM.
+⸻
 
-### 2️⃣ `nf3.accesodatos.dom.lectura`
-- Contiene el programa para **leer `personas.xml`** y mostrar los datos de cada persona en la consola.  
-- Ejemplo de recorrido de nodos, lectura de elementos y extracción de datos.
+📦 Paquetes y funcionalidades
 
----
+1️⃣ Paquete DOM – nf3.accesodatos.dom
 
-## Tecnologías utilizadas
-- **Java 8 o superior**  
-- Librerías estándar de Java para XML:  
-  - `javax.xml.parsers.*`  
-  - `org.w3c.dom.*`  
-  - `javax.xml.transform.*`  
+(Paquete exclusivo para DOM)
+Contiene el programa encargado de crear personas.xml con datos de personas (nombre, edad, nacionalidad).
+	•	Uso del modelo DOM para generar un XML válido.
+	•	Ejemplo práctico de creación de nodos, escritura y estructura del documento.
 
----
+⸻
 
-## Cómo utilizar
-Solo necesitas **un IDE compatible con Java** (Eclipse, IntelliJ, NetBeans, etc.):  
-1. Abre el proyecto en tu IDE.  
-2. Ejecuta los programas:
-   - **Paquete de creación:** `nf3.accesodatos.dom.NF3AccesoDatosDOM`  
-     - Crea `personas.xml` con los datos de las personas.  
-   - **Paquete de lectura:** `nf3.accesodatos.dom.lectura.mainLecturaDOM`  
-     - Lee `personas.xml` y muestra los datos en la consola.
+2️⃣ Paquete DOM Lectura – nf3.accesodatos.dom.lectura
 
-> Al ejecutarlos, se generará el archivo XML y se podrán leer los datos directamente desde la consola.
+(Segundo paquete DOM, solo para lectura con DOM)
+Incluye el programa que lee el archivo personas.xml utilizando el modelo DOM.
+	•	Recorrido del árbol de nodos.
+	•	Lectura de elementos y extracción de información.
 
----
+⸻
 
-## Autor
-- **Nombre:** Sergio Gutiérrez  
+3️⃣ Paquete SAX – nf3.accesodatos.sax
 
----
+(Paquete completamente independiente del DOM)
+Introduce la lectura del archivo personas.xml usando SAX, un parser basado en eventos.
+	•	Manejo de eventos startElement, characters, endElement.
+	•	Lectura eficiente sin cargar todo el XML en memoria.
+	•	Ejemplo claro de un DefaultHandler personalizado.
 
-## Nota
-Este proyecto es un **ejemplo práctico de manejo de XML en Java** usando DOM, ideal para aprender sobre estructuras de nodos, lectura y escritura de archivos, y manipulación de datos en memoria.
+⸻
+
+🛠 Tecnologías utilizadas
+	•	Java 8 o superior
+	•	Librerías estándar de Java para XML:
+	•	javax.xml.parsers.*
+	•	org.w3c.dom.*
+	•	javax.xml.transform.*
+	•	org.xml.sax.*
+	•	org.xml.sax.helpers.*
+
+⸻
+
+▶️ Cómo utilizar
+
+1️⃣ Crear el XML (DOM)
+
+Ejecuta:
+nf3.accesodatos.dom.NF3AccesoDatosDOM
+Genera el archivo personas.xml.
+
+⸻
+
+2️⃣ Leer el XML con DOM
+
+Ejecuta:
+nf3.accesodatos.dom.lectura.mainLecturaDOM
+Lee el XML usando el modelo DOM tradicional.
+
+⸻
+
+3️⃣ Leer el XML con SAX
+
+Ejecuta:
+nf3.accesodatos.sax.mainLecturaSAX
+Procesa el XML mediante eventos, sin cargar el documento completo.
+
+⸻
+
+👤 Autor
+
+Nombre: Sergio Gutiérrez
+
+⸻
+
+📝 Nota
+
+Este proyecto está diseñado para mostrar dos formas diferentes de trabajar con XML en Java:
+	•	DOM → lectura y escritura del documento completo en memoria.
+	•	SAX → lectura secuencial basada en eventos.
+
+Ambas técnicas están divididas en paquetes independientes, lo que facilita su comprensión y permite comparar ambos métodos fácilmente.
